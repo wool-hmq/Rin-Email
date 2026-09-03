@@ -18,13 +18,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const smtpHost = process.env.SMTP_HOST;
-  const smtpPort = parseInt(process.env.SMTP_PORT || '465');
+  const smtpPort = process.env.SMTP_PORT;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
   const smtpMail = process.env.SMTP_MAIL;
+  const smtpService = process.env.SMTP_SERVICE;
+  const smtpSecure = process.env.SMTP_SECURE;
   const emailDomain = process.env.EMAIL_DOMAIN;
 
-  if (!smtpHost || !smtpUser || !smtpPass || !smtpMail) {
+  if (!smtpHost && !smtpService) {
+    console.error('Missing SMTP config: both SMTP_HOST and SMTP_SERVICE are empty');
+    return res.status(500).json({ error: 'SMTP configuration incomplete' });
+  }
+
+  if (!smtpUser || !smtpPass || !smtpMail) {
+    console.error('Missing SMTP credentials:', { smtpUser: !!smtpUser, smtpPass: !!smtpPass, smtpMail: !!smtpMail });
     return res.status(500).json({ error: 'SMTP configuration incomplete' });
   }
 
@@ -41,26 +49,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
+    const config: any = {
       auth: {
         user: smtpUser,
         pass: smtpPass,
       },
-    });
+    };
 
-    await transporter.sendMail({
+    if (smtpService) {
+      config.service = smtpService;
+    } else {
+      config.host = smtpHost;
+      config.port = smtpPort ? Math.trunc(Number(smtpPort)) : 465;
+      config.secure = smtpSecure && smtpSecure !== 'false';
+    }
+
+    const transporter = nodemailer.createTransport(config);
+
+    const info = await transporter.sendMail({
       from: smtpMail,
       to,
       subject,
       text,
     });
 
-    return res.status(200).json({ success: true });
-  } catch (error) {
+    console.log('Email sent:', info.messageId);
+    return res.status(200).json({ success: true, messageId: info.messageId });
+  } catch (error: any) {
     console.error('Failed to send email:', error);
-    return res.status(500).json({ error: 'Failed to send email', details: String(error) });
+    return res.status(500).json({ error: 'Failed to send email', details: error.message });
   }
 }
