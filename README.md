@@ -91,3 +91,17 @@ Set these environment variables in your Rin Cloudflare Worker:
 - `EMAIL_PASS` is the API password to authenticate requests from Rin blog. It should be different from `SMTP_PASS`.
 - For 163/QQ email providers, use their authorization code (not login password) as `SMTP_PASS`.
 - `SMTP_SERVICE` and `SMTP_HOST` are mutually exclusive. Use one or the other.
+
+## Related links
+- [Rin Repository](https://github.com/wool-hmq/Rin)
+- [My Rin Blog](https://jiaoblog.dpdns.org)
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=wool-hmq%2Frin-email&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&legend=top-left" />
+ </picture>
+</a>
