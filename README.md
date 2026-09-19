@@ -18,6 +18,10 @@ Vercel Serverless Function for sending emails via SMTP. Used as an email relay f
 | `SMTP_SECURE` | No | Enable SSL/TLS. `true` or `false` (default: `true` for port 465) |
 | `EMAIL_DOMAIN` | No | JSON array of allowed recipient domains (e.g. `["qq.com","example.com"]`). Empty = no restriction. |
 
+> About Variable – **SMTP_SERVICE**
+> 
+> You can find all support provider in [nodemailer](https://github.com/nodemailer/nodemailer/blob/master/src/well-known/services.json) services.
+
 ## Configuration Examples
 
 ### Option 1: Using built-in service (recommended for Chinese email providers)
