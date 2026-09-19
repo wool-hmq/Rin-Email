@@ -2,6 +2,8 @@
 
 Vercel Serverless Function for sending emails via SMTP. Used as an email relay for Rin blog on Cloudflare Workers.
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/wool-hmq/Rin-Email)
+
 ## Environment Variables
 
 | Variable | Required | Description |
@@ -98,10 +100,4 @@ Set these environment variables in your Rin Cloudflare Worker:
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=wool-hmq%2Frin-email&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&legend=top-left" />
- </picture>
-</a>
+[![Star History Chart](https://api.star-history.com/chart?repos=wool-hmq/rin-email&type=date&legend=top-left)](https://www.star-history.com/?repos=wool-hmq%2Frin-email&type=date&legend=top-left)
