@@ -2,6 +2,8 @@
 
 Vercel Serverless Function for sending emails via SMTP. Used as an email relay for Rin blog on Cloudflare Workers.
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/wool-hmq/Rin)
+or
 [![Ask DeepWiki](https://pic1.imgdb.cn/i/034YoENQTINwDFfpIAX6NS.svg)](https://deepwiki.com/wool-hmq/Rin-Email)
 
 ## Environment Variables
