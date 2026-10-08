@@ -2,6 +2,12 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Rin-Email is deprecated. Email sending has moved to wool-hmq/mailport.
+  res.setHeader('Deprecation', 'true');
+  res.setHeader('Link', '<https://github.com/wool-hmq/mailport>; rel="deprecation"');
+  res.setHeader('Warning', '299 - "Rin-Email is deprecated. Please migrate to wool-hmq/mailport (https://github.com/wool-hmq/mailport)."');
+  console.warn('Rin-Email is deprecated. Please migrate to wool-hmq/mailport: https://github.com/wool-hmq/mailport');
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

@@ -1,6 +1,13 @@
+> [!WARNING]
+> **This project is deprecated and no longer maintained.**
+>
+> Email sending for Rin has moved to **[wool-hmq/mailport](https://github.com/wool-hmq/mailport)**. Please migrate to MailPort for new deployments. This repository is retained for historical reference only and will not receive further updates or fixes.
+
 # Rin-Email
 
 Vercel Serverless Function for sending emails via SMTP. Used as an email relay for Rin blog on Cloudflare Workers.
+
+> **Deprecated:** Use [wool-hmq/mailport](https://github.com/wool-hmq/mailport) instead.
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/wool-hmq/Rin)
 or
